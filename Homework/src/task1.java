@@ -6,12 +6,7 @@ public class task1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		
-		
-		
 		System.out.print("Please enter the monthly saving amount:");
-		
-	
 		
 		 double Monthly_Interest_Rate = 0.05/12;
 		 

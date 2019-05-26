@@ -7,6 +7,13 @@ public class Task_2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	
+		/*1 input and define the account number
+		 * 2 input and define the balance of the beginning of the month
+		 * 3. input and define the the charged by customer
+		 * 4. input and define the credit limit
+		 * 5. calculated the balance and compaired with the credit limit
+		 * 6. printout the answer.
+		 */
 		
 		String account_number = JOptionPane.showInputDialog("Your account No.", 2345324);     //define the variable of account_number, and convert the string variable into int.
 		

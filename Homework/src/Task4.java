@@ -2,41 +2,25 @@ import java.util.Scanner;
 
 public class Task4 {
 
-	public static int M = -1;
-	public static int N = 0;
-	private static String names[] ;
-	private static int [] marks1 ;
-	public static int [] marks2;
-	public static int [] marks3;
-	public static int[] avgs ;
-	public static char[] grades; 
-	public static int i;
 	
-	public static void printList(int N) {
-		
-		System.out.println("Student"+"  "+"Mark1"+"  "+"Mark2"+"  "+"Mark3"+"  "+"Average"+"  "+"Grade");
-		for (int i = 0; i < N; i++) {			
-			System.out.println(names[i]+ " "+marks1[i]+" "+marks2[i]+ " "+marks3[i]+ " "+avgs[i]+ " "+grades[i]);
-			return;
-	}
-	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		
-		 String [] names = new String[N];
-		int [] marks1 = new int[N];
-		 int [] marks2 = new int[N];
-		 int [] marks3 = new int[N];
-		 int[] avgs = new int[N];
-		 char[] grades= new char[N];
 		
+		// N is number of students. 
 		Scanner input = new Scanner(System.in);
 		System.out.print("Enter Number of Students");
-		N = input.nextInt();
-				
+		int N = input.nextInt();
+		// clarify the variable of 6 arraies and defined them. 
+		String [] names = new String[N];
+		int [] marks1 = new int[N];
+		int [] marks2 = new int[N];
+		int [] marks3 = new int[N];
+		int[] avgs = new int[N];
+		char[] grades= new char[N];
 		
-		
+		//input the NO. of 6 variable 
 		for (int i = 0; i < N; i++) {
 			System.out.print("Pls Enter"+(i+1)+"Student Name:");
             names[i] = input.next();//next char and string
@@ -46,7 +30,9 @@ public class Task4 {
 			marks2[i] = input.nextInt();
 			System.out.print("Pls Enter"+names[i]+"'s "+"Third Score");
 			marks3[i] = input.nextInt();
+			// calculated the average
 			avgs[i] = (marks1[i] + marks2[i] + marks3[i])/3;
+			// give grades to students
 			if(avgs[i]>=90 && avgs[i]<=100) {
 				grades[i]='A';
 			}else if(avgs[i]>=80 && avgs[i]<=89) {
@@ -59,25 +45,65 @@ public class Task4 {
 				grades[i] ='F';
 			}
 		}
+		//print out the array and the list
 		System.out.println("Student      Average           Grade");
 		for (int i = 0; i < N; i++) {
 			System.out.println(names[i]+ "\t\t"+avgs[i]+ "\t\t"+grades[i]);
 		}
 		
-		System.out.println("============================================================");
-		System.out.println(" 1. Print the entire list\n 2. Sort and print the list alphabetically\n 3. Sort and print the list in descending order based on the average.\n 4. Find the student who has the maximum average \n 5. Find the student who has the minium average \n 6. Print the grade distribution \n 0. Exit");
-		System.out.println("============================================================");
+		choose(input, N, names, marks1, marks2, marks3, avgs, grades);
 		
-		System.out.print("Enter your choice?");
-		
-		M = input.nextInt();
-		
-		if(M==1) {
-			printList();
-		}else if(M==2) {
-			System.out.println("I don't know");
 		}
+
+	private static void choose(Scanner input, int N, String[] names, int[] marks1, int[] marks2, int[] marks3,
+			int[] avgs, char[] grades) {
+		while (true) {
+			
 		
+			System.out.println("====================================================================");
+			System.out.println(" 1. Print the entire list\n 2. Sort and print the list alphabetically\n 3. Sort and print the list in descending order based on the average.\n 4. Find the student who has the maximum average \n 5. Find the student who has the minium average \n 6. Print the grade distribution \n 0. Exit");
+			System.out.println("====================================================================");
+			// show choice for users
+			System.out.print("Enter your choice?");
+			int M = -1;
+			int countA = 0, countB =0, countC = 0, countD = 0, countF = 0;
+			M = input.nextInt();
+			// show the total list of users.
+			if(M==1) {
+				System.out.println("Student"+"  "+"Mark1"+"  "+"Mark2"+"  "+"Mark3"+"  "+"Average"+"  "+"Grade");
+			for (int i = 0; i < N; i++) {
+				System.out.println(names[i]+ "      "+marks1[i]+"     "+marks2[i]+ "      "+marks3[i]+ "      "+avgs[i]+ "      "+grades[i]);
+				}
+			}else if(M==2) {
+				System.out.println("I don't know");
+				//show the grade distribution
+			}else if(M==6) {
+				for (int i = 0; i < grades.length; i++) {
+					if('A' == grades[i]) {
+						countA += 1;
+					}
+					if('B' == grades[i]) {
+						countB += 1;
+					}
+					if('C' == grades[i]) {
+						countC += 1;
+					}
+					if('D' == grades[i]) {
+						countD += 1;
+					}
+					if('F' == grades[i]) {
+						countF += 1;
+					}
+				}
+				System.out.println("Grade Distribution: A = "+ countA + "     "+"B = "+ countB  + "     "+"C = "+ countC  + "     "+"D = "+ countD+ "     "+"F = "+ countF);
+				
+			}
+			System.out.println("go on? Y/N");
+			String answer = new Scanner(System.in).next();
+			if("N".equalsIgnoreCase(answer)) {
+				break;
+			}
+		}
 		}
 		
 		
