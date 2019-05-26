@@ -61,9 +61,9 @@ public class Task4 {
 		while (true) {
 			
 		
-			System.out.println("====================================================================");
+			System.out.println("================================================================================");
 			System.out.println(" 1. Print the entire list\n 2. Sort and print the list alphabetically\n 3. Sort and print the list in descending order based on the average.\n 4. Find the student who has the maximum average \n 5. Find the student who has the minium average \n 6. Print the grade distribution \n 0. Exit");
-			System.out.println("====================================================================");
+			System.out.println("================================================================================");
 			// show choice for users
 			System.out.print("Enter your choice?");
 			int M = -1;
@@ -71,14 +71,50 @@ public class Task4 {
 			M = input.nextInt();
 			// show the total list of users.
 			if(M==1) {
-				System.out.println("Student"+"  "+"Mark1"+"  "+"Mark2"+"  "+"Mark3"+"  "+"Average"+"  "+"Grade");
+				System.out.println("Student"+"\t\t"+"Mark1"+"\t\t"+"Mark2"+"\t\t"+"Mark3"+"\t\t"+"Average"+"\t\t"+"Grade");
 			for (int i = 0; i < N; i++) {
-				System.out.println(names[i]+ "      "+marks1[i]+"     "+marks2[i]+ "      "+marks3[i]+ "      "+avgs[i]+ "      "+grades[i]);
+				System.out.println(names[i]+ "\t\t"+marks1[i]+"\t\t"+marks2[i]+ "\t\t"+marks3[i]+ "\t\t"+avgs[i]+ "\t\t"+grades[i]);
 				}
 			}else if(M==2) {
-				System.out.println("I don't know");
-			}else if (M==3) {
 				System.out.println("I dont't know");
+				
+			}else if (M==3) {
+				for (int i = 0; i < N-1; i++) {
+					for (int j = 0; j < N-i-1; j++) {
+						if(avgs[j]<avgs[j+1]) {
+							int temp = avgs[j];
+							avgs[j]= avgs[j+1];
+							avgs[j+1]= temp;
+							
+							String temp1 = names[j];
+							names[j]= names[j+1];
+							names[j+1] =temp1;
+							
+							int temp2 = marks1[j];
+							marks1[j]= marks1[j+1];
+							marks1[j+1] =temp2;
+							
+							int temp3 = marks2[j];
+							marks2[j]= marks2[j+1];
+							marks2[j+1] =temp3;
+							
+							int temp4 = marks3[j];
+							marks3[j]= marks3[j+1];
+							marks3[j+1] =temp4;
+							
+							char temp5 = grades[j];
+							grades[j] = grades[j+1];
+							grades[j+1] = temp5;
+							
+						}
+					}
+				}
+				System.out.println("Student"+"\t\t"+"Mark1"+"\t\t"+"Mark2"+"\t\t"+"Mark3"+"\t\t"+"Averge"+"\t\t"+"Grade");
+				for (int i = 0; i < N; i++) {
+					System.out.println(names[i] +"\t\t"+marks1[i]+"\t\t"+marks2[i]+"\t\t"+marks3[i]+"\t\t"+ avgs[i]+"\t\t"+grades[i]);
+				}
+				
+
 			}else if (M==4) {
 				int max = avgs[0];
 				for ( int i = 0; i < N; i++) {
