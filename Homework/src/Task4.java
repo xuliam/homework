@@ -20,6 +20,7 @@ public class Task4 {
 		int[] avgs = new int[N];
 		char[] grades= new char[N];
 		
+		
 		//input the NO. of 6 variable 
 		for (int i = 0; i < N; i++) {
 			System.out.print("Pls Enter"+(i+1)+"Student Name:");
@@ -76,6 +77,43 @@ public class Task4 {
 				}
 			}else if(M==2) {
 				System.out.println("I don't know");
+			}else if (M==3) {
+				System.out.println("I dont't know");
+			}else if (M==4) {
+				int max = avgs[0];
+				for ( int i = 0; i < N; i++) {
+					if(avgs[i]>max) {
+						max = avgs[i];
+					}
+				}
+				String goodName = null;
+				int searchIndex = -1;
+				for (int i = 0; i < N; i++) {
+					if(max == avgs[i]) {
+						searchIndex= i;
+						break;
+					}
+				}
+				goodName = names[searchIndex];
+				System.out.println("Student with max average is: "+goodName+"\t\t"+ max);
+			}else if (M==5) {
+				int min = avgs[0];
+				for ( int i = 0; i < N; i++) {
+					if(avgs[i]<min) {
+						min = avgs[i];
+					}
+				}
+				String badName = null;
+				int searchIndex = -1;
+				for (int i = 0; i < N; i++) {
+					if(min == avgs[i]) {
+						searchIndex= i;
+						break;
+					}
+				}
+				badName = names[searchIndex];
+					System.out.println("Student with min average is: "+badName+"\t\t"+ min);
+			
 				//show the grade distribution
 			}else if(M==6) {
 				for (int i = 0; i < grades.length; i++) {
@@ -97,13 +135,16 @@ public class Task4 {
 				}
 				System.out.println("Grade Distribution: A = "+ countA + "     "+"B = "+ countB  + "     "+"C = "+ countC  + "     "+"D = "+ countD+ "     "+"F = "+ countF);
 				
-			}
-			System.out.println("go on? Y/N");
-			String answer = new Scanner(System.in).next();
-			if("N".equalsIgnoreCase(answer)) {
+			}else if(M==0){
 				break;
 			}
+			//System.out.println("go on? Y/N");
+			//String answer = new Scanner(System.in).next();
+			//if("N".equalsIgnoreCase(answer)) {
+			//	break;
+			//}
 		}
+		
 		}
 		
 		
