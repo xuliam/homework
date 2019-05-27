@@ -209,11 +209,7 @@ public class Task4 {
 			}else if(M==0){
 				break;
 			}
-			//System.out.println("go on? Y/N");
-			//String answer = new Scanner(System.in).next();
-			//if("N".equalsIgnoreCase(answer)) {
-			//	break;
-			//}
+
 		}
 		
 		}
