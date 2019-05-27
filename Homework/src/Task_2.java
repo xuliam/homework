@@ -5,7 +5,6 @@ public class Task_2 {
 	//private static final Integer new_balace = null;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 	
 		/*1 input and define the account number
 		 * 2 input and define the balance of the beginning of the month

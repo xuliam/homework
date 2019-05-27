@@ -77,11 +77,41 @@ public class Task4 {
 				System.out.println(names[i]+ "\t\t"+marks1[i]+"\t\t"+marks2[i]+ "\t\t"+marks3[i]+ "\t\t"+avgs[i]+ "\t\t"+grades[i]);
 				}
 			}else if(M==2) {
-				Arrays.sort(names);
-				for(String name : names) {
-					System.out.println(name);
+				for (int i = 0; i < N-1; i++) {
+					for (int j = i+1; j < N; j++) {
+						if(names[i].compareTo(names[j])>0) {
+							String temp = names[i];
+							names[i]= names[j];
+							names[j]= temp;
+							
+							int temp2 = marks1[i];
+							marks1[i]= marks1[j];
+							marks1[j] =temp2;
+							
+							int temp3 = marks2[i];
+							marks2[i]= marks2[j];
+							marks2[j] =temp3;
+							
+							int temp4 = marks3[i];
+							marks3[i]= marks3[j];
+							marks3[j] =temp4;
+							
+							char temp5 = grades[i];
+							grades[i] = grades[j];
+							grades[j] = temp5;
+							
+							int temp1 = avgs[i];
+							avgs[i]= avgs[j];
+							avgs[j] =temp1;
+						}
+						
+					}
 				}
-				System.out.println("加油");
+				System.out.println("Student"+"\t\t"+"Mark1"+"\t\t"+"Mark2"+"\t\t"+"Mark3"+"\t\t"+"Averge"+"\t\t"+"Grade");
+				for (int i = 0; i < N; i++) {
+					System.out.println(names[i] +"\t\t"+marks1[i]+"\t\t"+marks2[i]+"\t\t"+marks3[i]+"\t\t"+ avgs[i]+"\t\t"+grades[i]);
+				}
+				
 				
 			}else if (M==3) {
 				for (int i = 0; i < N-1; i++) {
