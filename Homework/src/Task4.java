@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task4 {
@@ -61,9 +62,9 @@ public class Task4 {
 		while (true) {
 			
 		
-			System.out.println("================================================================================");
+			System.out.println("========================================================================================");
 			System.out.println(" 1. Print the entire list\n 2. Sort and print the list alphabetically\n 3. Sort and print the list in descending order based on the average.\n 4. Find the student who has the maximum average \n 5. Find the student who has the minium average \n 6. Print the grade distribution \n 0. Exit");
-			System.out.println("================================================================================");
+			System.out.println("========================================================================================");
 			// show choice for users
 			System.out.print("Enter your choice?");
 			int M = -1;
@@ -76,7 +77,11 @@ public class Task4 {
 				System.out.println(names[i]+ "\t\t"+marks1[i]+"\t\t"+marks2[i]+ "\t\t"+marks3[i]+ "\t\t"+avgs[i]+ "\t\t"+grades[i]);
 				}
 			}else if(M==2) {
-				System.out.println("I dont't know");
+				Arrays.sort(names);
+				for(String name : names) {
+					System.out.println(name);
+				}
+				System.out.println("加油");
 				
 			}else if (M==3) {
 				for (int i = 0; i < N-1; i++) {
@@ -131,7 +136,7 @@ public class Task4 {
 					}
 				}
 				goodName = names[searchIndex];
-				System.out.println("Student with max average is: "+goodName+"\t\t"+ max);
+				System.out.println("Student with max average is: "+goodName+"\t\t"+"Average="+ max);
 			}else if (M==5) {
 				int min = avgs[0];
 				for ( int i = 0; i < N; i++) {
@@ -148,7 +153,7 @@ public class Task4 {
 					}
 				}
 				badName = names[searchIndex];
-					System.out.println("Student with min average is: "+badName+"\t\t"+ min);
+					System.out.println("Student with min average is: "+badName+"\t\t"+ "Average="+min);
 			
 				//show the grade distribution
 			}else if(M==6) {
